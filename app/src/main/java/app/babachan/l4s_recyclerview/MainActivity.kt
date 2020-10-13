@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import org.w3c.dom.CharacterData
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val adapter = RecyclerViewAdapter(this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
+
+//        val horizontalLayoutManagaer =
+//            LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+//        recyclerView.layoutManager = horizontalLayoutManagaer
+
+//        val manager = LinearLayoutManager(this)
+//        manager.orientation = LinearLayoutManager.HORIZONTAL // ここで横方向に設定
+//
+//        recyclerView.layoutManager = manager
 
         adapter.addAll(characterData)
     }
